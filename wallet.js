@@ -1,12 +1,14 @@
 const puppeteer = require('puppeteer');
 
 const b3 = [
-    'ifix/',
-    'petrobras-petr4/',
-    'vale-vale3/'  
+    'bitcoin-btc/',
+    'ambev-abev3/',
+    'gerdau-ggbr4/',
+    'itau-unibanco-itub4/',
+    'magazine-luiza-mglu3/'  
 ]
 
-b3.forEach(async (action) => {
+async function actionValue(action) {
   const browser = await puppeteer.launch({ headless: false });
   const context = await browser.createIncognitoBrowserContext();
   const page = await context.newPage();
@@ -17,4 +19,6 @@ b3.forEach(async (action) => {
     console.log(text)
 
   await browser.close();
-});
+};
+
+b3.forEach(actionValue);
