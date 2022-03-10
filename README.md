@@ -2,7 +2,8 @@
 
 # TASKS
 
-- [x] Começar a usar o GIT e o GitHub
-- [x] Utilizar o puppeteer `npm i puppeteer` 
-- [x] Criar função que pega as cotações das ações escolhidas 
-- [] Criar interface Web para exibir as cotações
+- [x] Get started with GIT and GitHub
+- [x] Use o puppeteer `npm i puppeteer` 
+- [x] Create a function that takes quotes from infomoney.com.br 
+- [] Save these quotes in some variable
+- [] Create web interface to display and choice quotes
