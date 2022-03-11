@@ -1,4 +1,6 @@
 const puppeteer = require('puppeteer');
+const fs = require('fs');
+
 
 const b3 = [
     'bitcoin-btc/',
@@ -8,17 +10,35 @@ const b3 = [
     'magazine-luiza-mglu3/'  
 ]
 
-async function actionValue(action) {
-  const browser = await puppeteer.launch({ headless: false });
-  const context = await browser.createIncognitoBrowserContext();
-  const page = await context.newPage();
-  await page.goto(`https://www.infomoney.com.br/cotacoes/${action}`);
-  const element = await page.$(".value");
-    const text = await page.evaluate(element => element.textContent, element);
+async function actionValues(actionName) {
+  // const browser = await puppeteer.launch({ headless: false }); <-- para visualizar o chromium
+  // const context = await browser.createIncognitoBrowserContext(); <-- para criar uma janela anônima
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto(`https://www.infomoney.com.br/cotacoes/${actionName}`);
+  
+  const actionValue = await page.evaluate(() => {
+    
+    const getValue = document.querySelector('.value p').innerText;
 
-    console.log(text)
+    return getValue
 
+  });
+
+  fs.appendFile(
+
+    './myActions.txt',
+
+    JSON.stringify(actionValue),
+
+    function (err) {
+        if (err) {
+            console.error('Crap happens');
+        }
+    }
+  );
+  
   await browser.close();
 };
 
-b3.forEach(actionValue);
+b3.forEach(actionValues);
