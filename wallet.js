@@ -1,44 +1,35 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
-
-const b3 = [
-    'bitcoin-btc/',
-    'ambev-abev3/',
-    'gerdau-ggbr4/',
-    'itau-unibanco-itub4/',
-    'magazine-luiza-mglu3/'  
-]
-
 async function actionValues(actionName) {
-  // const browser = await puppeteer.launch({ headless: false }); <-- para visualizar o chromium
-  // const context = await browser.createIncognitoBrowserContext(); <-- para criar uma janela anônima
+  
+  // const browser = await puppeteer.launch({ headless: false }); <-- to view browser working
+  // const context = await browser.createIncognitoBrowserContext(); <-- to create an incognito window
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(`https://www.infomoney.com.br/cotacoes/${actionName}`);
   
   const actionValue = await page.evaluate(() => {
     
-    const getValue = document.querySelector('.value p').innerText;
+    const getValue = document.querySelectorAll('.value p');
 
-    return getValue
+    const actionArray = [...getValue]
 
+    const actionValue = actionArray.map( ({innerText}) => ({
+        innerText
+    }))
+
+    return actionValue
   });
 
-  fs.appendFile(
+  //
+  fs.appendFile('actions.json', JSON.stringify(actionValue, null, 2), err => {
+    if(err) throw new Error('something went wrong');
 
-    './myActions.txt',
-
-    JSON.stringify(actionValue),
-
-    function (err) {
-        if (err) {
-            console.error('Crap happens');
-        }
-    }
-  );
+    console.log('well done!')
+  });
   
   await browser.close();
 };
 
-b3.forEach(actionValues);
+actionValues('gerdau-ggbr4/')
