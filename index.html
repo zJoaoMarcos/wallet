@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Wallet</title>
 </head>
 <body>
-    <style>
-        li {
-            list-style: none;
-        }
-    </style>
-
-    <div class="container"></div>
+    
+    <main class="container">
+        
+        <h2>Actions</h2>
+        
+        <div class="actions"></div>
+            
+    </main>
 
 
     <script>
@@ -21,9 +23,9 @@
             const response = await fetch('./actions.json');
             const data = await response.json();
   
-            const listActions = data.map( ({innerText}) => `<li>O valor desta ação atualmente é: ${innerText}</li>`)
+            const listActions = data.map( ({innerText}) => `<li>O valor desta ação atualmente é ${innerText}</li>`)
 
-            document.querySelector('.container').innerHTML = listActions;
+            document.querySelector('.actions').innerHTML = listActions;
         })();
     
     </script>
