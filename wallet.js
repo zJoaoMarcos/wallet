@@ -11,15 +11,22 @@ async function actionValues(actionName) {
   
   const actionValue = await page.evaluate(() => {
     
-    const getValue = document.querySelectorAll('.value p');
+    const getValue = document.querySelector('.value p').textContent;
+    const getName = document.querySelector('h1').textContent;
+     
+    function Action(nome, valor) {
+      this.nome = nome;
+      this.valor = valor;
+    }
+    
+    let getAction = new Action(getName, getValue)
 
-    const actionArray = [...getValue]
-
-    const actionValue = actionArray.map( ({innerText}) => ({
+    /* let actionArray = [getAction] */
+    /* const actionValue = actionArray.map( ({innerText}) => ({
         innerText
-    }))
+    })) */
 
-    return actionValue
+    return getAction
   });
 
   //
@@ -30,6 +37,6 @@ async function actionValues(actionName) {
   });
   
   await browser.close();
-};
+};  
 
 actionValues('gerdau-ggbr4/')
