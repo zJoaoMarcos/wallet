@@ -14,23 +14,20 @@ async function actionValues(actionName) {
     const getValue = document.querySelector('.value p').textContent;
     const getName = document.querySelector('h1').textContent;
      
-    function Action(nome, valor) {
-      this.nome = nome;
-      this.valor = valor;
+    function Action(name, value) {
+      this.name = name;
+      this.value = value;
     }
     
     let getAction = new Action(getName, getValue)
 
-    /* let actionArray = [getAction] */
-    /* const actionValue = actionArray.map( ({innerText}) => ({
-        innerText
-    })) */
+    let actionArray = [getAction] 
 
-    return getAction
+    return actionArray
   });
 
   //
-  fs.appendFile('actions.json', JSON.stringify(actionValue, null, 2), err => {
+  fs.writeFile('actions.json', JSON.stringify(actionValue, null, 2), err => {
     if(err) throw new Error('something went wrong');
 
     console.log('well done!')
@@ -40,3 +37,12 @@ async function actionValues(actionName) {
 };  
 
 actionValues('gerdau-ggbr4/')
+
+
+/* 'magazine-luiza-mglu3/',
+'ambev-abev3/',
+'petrobras-petr4/',
+'itau-unibanco-itub4/',
+'vale-vale3/',
+'bitcoin-btc/',
+'walt-disney-disb34/' */

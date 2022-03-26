@@ -23,7 +23,7 @@
             const response = await fetch('./actions.json');
             const data = await response.json();
   
-            const listActions = data.map( ({innerText}) => `<li>O valor desta ação atualmente é ${innerText}</li>`)
+            const listActions = data.map( ({name, value}) => `<li>O valor da ação ${name} atualmente é  $${value}.</li>`)
 
             document.querySelector('.actions').innerHTML = listActions;
         })();
