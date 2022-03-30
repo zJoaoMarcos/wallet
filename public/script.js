@@ -1,7 +1,14 @@
-const submitButton = document.querySelector('#button-submit')
+const input = document.getElementById('input-action')
 
-function clickButton(event) { 
-    console.log(event)
+function inputValue(event) {
+    console.log(event.target.value)
 }
 
-submitButton.addEventListener('click', clickButton)
+input.addEventListener('change', inputValue) 
+
+const form = document.querySelector('#form-action')
+
+form.addEventListener('submit', function(event){
+    console.log(event)
+    event.preventDefault()
+})
