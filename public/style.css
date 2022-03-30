@@ -34,7 +34,7 @@ li {
 form {
     display: flex;
     justify-content: start;
-    
+    align-items: center;
 }
 
 .actionsList {
@@ -51,7 +51,7 @@ form {
     cursor: pointer;
 }
 
-.actionsList::selection {
+.actionsList:active {
     border-style: none;
 }
 
@@ -67,7 +67,10 @@ form {
 }
 
 .submit:hover {
-    background-color: #7600a9;
-    cursor: pointer;    
+    cursor: pointer;  
+}
+
+.submit:active {
+    background-color: #7600a9;  
     font-size: 15px;
 }
