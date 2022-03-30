@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="static/style.css">
     <title>Wallet</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
 
         <form action="" >
             <input class="actionsList" list="actionsName" placeholder="Choice one quotes"/>
-            <input class="submit" type="button" value="Submit">            
+            <input id="button-submit" class="submit" type="button" value="Submit">            
         </form>
 
         <datalist id="actionsName">
@@ -33,8 +33,9 @@
             
     </main>
 
-
-    <script>
+    <script src="static/script.js"></script>
+    <!-- <script src="static/wallet.js"></script> -->
+    <!-- <script>
         (async() => {
             const response = await fetch('./actions.json');
             const data = await response.json();
@@ -44,6 +45,6 @@
             document.querySelector('.actions').innerHTML = listActions;
         })();
     
-    </script>
+    </script> -->
 </body>
 </html>
