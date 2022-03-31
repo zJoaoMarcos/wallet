@@ -13,10 +13,11 @@
         
         <h2>Wallet</h2>
 
-        <form action="" id="form-action">
-            <input id="input-action" class="actionsList" list="actionsName" placeholder="Choice one quotes" required/>
+        <form method="post" id="form-action">
+            <input id="input-action" class="actionsList" list="actionsName"  name="actions" required placeholder="Choice one quotes"/>
             <button id="button-submit" class="submit" type="submit">Submit</button>          
         </form>
+        
 
         <datalist id="actionsName">
             <option value='magazine-luiza-mglu3/'>Magazine Luiza</option>
@@ -33,7 +34,7 @@
             
     </main>
 
-    <script src="static/script.js"></script>
+    <!-- <script src="static/script.js"></script> -->
     <!-- <script src="static/wallet.js"></script> -->
     <!-- <script>
         (async() => {
