@@ -1,5 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+/* const puppeteer = require('puppeteer');
+const fs = require('fs'); */
+const wallet = require('./wallet.js')
+
 
 const app = express();
 
@@ -13,9 +17,14 @@ app.get('/', function(req, res) {
 });
 
 app.post('/', function(req, res) {
-    res.write(req.body.actions);
-    res.end();
-});
+    
+    const inputAction = req.body.input
+
+    wallet.actionValues(`'${inputAction}/'`)
+    console.log(`'${inputAction}/'`)
+    
+    res.sendFile(__dirname + '/index.html'); 
+})
 
 
-app.listen(3000, () => console.log('server is running in 3000'));
+app.listen(3333, () => console.log('server is running...'));   

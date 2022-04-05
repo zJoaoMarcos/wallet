@@ -13,20 +13,21 @@
         
         <h2>Wallet</h2>
 
-        <form method="post" id="form-action">
-            <input id="input-action" class="actionsList" list="actionsName"  name="actions" required placeholder="Choice one quotes"/>
-            <button id="button-submit" class="submit" type="submit">Submit</button>          
+        <form method="POST">
+            <label for="input"></label>
+            <input id="input" list="actionsName" name="input" placeholder="Choice one quotes" required/>
+            <button id="submit" type="submit">Submit</button>          
         </form>
         
 
         <datalist id="actionsName">
-            <option value='magazine-luiza-mglu3/'>Magazine Luiza</option>
-            <option value='ambev-abev3/'>
-            <option value='petrobras-petr4/'>
-            <option value='itau-unibanco-itub4/'>
-            <option value='vale-vale3/'>
-            <option value='bitcoin-btc/'>
-            <option value='walt-disney-disb34/'>
+            <option value='magazine-luiza-mglu3'>Magazine Luiza</option>
+            <option value='ambev-abev3'>
+            <option value='petrobras-petr4'>
+            <option value='itau-unibanco-itub4'>
+            <option value='vale-vale3'>
+            <option value='bitcoin-btc'>
+            <option value='walt-disney-disb34'>
         </datalist>
      
         
@@ -34,11 +35,11 @@
             
     </main>
 
-    <!-- <script src="static/script.js"></script> -->
-    <!-- <script src="static/wallet.js"></script> -->
+    
+    <script src="static/script.js"></script>
     <!-- <script>
         (async() => {
-            const response = await fetch('./actions.json');
+            const response = await fetch('static/actions.json');
             const data = await response.json();
   
             const listActions = data.map( ({name, value}) => `<li>O valor da ação ${name} atualmente é  R$${value}.</li>`)

@@ -1,11 +1,11 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 
-async function actionValues(actionName) {
+const actionValues = async(actionName) => {
   
   // const browser = await puppeteer.launch({ headless: false }); <-- to view browser working
   // const context = await browser.createIncognitoBrowserContext(); <-- to create an incognito window
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   await page.goto(`https://www.infomoney.com.br/cotacoes/${actionName}`);
   
@@ -26,7 +26,7 @@ async function actionValues(actionName) {
     return actionArray
   });
 
-  //
+  //wirte local file
   fs.writeFile('actions.json', JSON.stringify(actionValue, null, 2), err => {
     if(err) throw new Error('something went wrong');
 
@@ -36,7 +36,9 @@ async function actionValues(actionName) {
   await browser.close();
 };  
 
-actionValues('gerdau-ggbr4/')
+/* actionValues('petrobras-petr4/') */
+
+module.exports.actionValues = actionValues
 
 
 /* 'magazine-luiza-mglu3/',
@@ -45,4 +47,5 @@ actionValues('gerdau-ggbr4/')
 'itau-unibanco-itub4/',
 'vale-vale3/',
 'bitcoin-btc/',
-'walt-disney-disb34/' */
+'walt-disney-disb34/',
+'gerdau-ggbr4/'*/
