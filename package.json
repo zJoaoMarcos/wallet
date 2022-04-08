@@ -1,0 +1,26 @@
+{
+  "name": "wallet",
+  "version": "1.0.0",
+  "description": "- [x] Começar a usar o GIT e o GitHub\r - [x] Utilizar o puppeteer `npm i puppeteer` \r - [x] Criar função que pega as cotações das ações escolhidas \r - [] Criar interface Web para exibir as cotações",
+  "main": "wallet.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zJoaoMarcos/wallet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zJoaoMarcos/wallet/issues"
+  },
+  "homepage": "https://github.com/zJoaoMarcos/wallet#readme",
+  "dependencies": {
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
+    "file-system": "^1.2.2",
+    "nodemon": "^2.0.15",
+    "puppeteer": "^13.5.2"
+  }
+}
